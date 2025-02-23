@@ -78,7 +78,7 @@ body {
     position: relative;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
     .navWrapper {
         width: 40px;
         padding-left: 0;
