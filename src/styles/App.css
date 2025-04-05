@@ -4,6 +4,7 @@ body {
     margin: 0;
     font-family: Roboto, serif;
 }
+
 .navWrapper {
     width: 184px;
     padding-top: 20px;
@@ -17,9 +18,11 @@ body {
     box-shadow: 5px 0 8px -2px #CECECE;
     position: fixed;
 }
+
 .logoContainer {
     padding-bottom: 20px;
 }
+
 .logoContainer a {
     float: left;
     padding-left: 20px;
@@ -63,7 +66,6 @@ body {
     padding: 20px;
     margin-left: 180px;
     font-size: 16px;
-    background-color: #f4f4f4;
     z-index: 1;
     position: relative;
 }
