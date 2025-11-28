@@ -1,13 +1,10 @@
 import React from 'react';
-import {Col, Container, Row} from "react-bootstrap";
+import {Container} from "react-bootstrap";
+import {PageTitle, PageTitleDescription} from "../../components/common/Common.styled";
 
 export const Other: React.FC = () => (
     <Container fluid>
-        <Row>
-            <Col>
-                <h2>Other Page</h2>
-                <p>This will be view with other stuff.</p>
-            </Col>
-        </Row>
+        <PageTitle>Other Page</PageTitle>
+        <PageTitleDescription>This will be view with other stuff.</PageTitleDescription>
     </Container>
 );
