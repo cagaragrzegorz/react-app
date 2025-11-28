@@ -8,17 +8,18 @@ export const Home: React.FC = () => (
         <PageTitle>Home Page</PageTitle>
         <PageTitleDescription>This page is meant to contain miscellaneous projects that are part of one website build
             with React and Bootstrap.</PageTitleDescription>
+
+        Currently, it includes:
+        <ul>
+            <li>Todo: A simple todo list application to manage tasks.</li>
+            <li>Generators: Tool for generating various content for library.</li>
+            <li>Test Status Dashboard: A dashboard for monitoring E2E/API test runs.</li>
+        </ul>
+        More features and projects will be added in the future.
+
         <StyledP>
-            Currently, it includes:
-            <ul>
-                <li>Todo: A simple todo list application to manage tasks.</li>
-                <li>Generators: Tool for generating various content for library.</li>
-                <li>Test Status Dashboard: A dashboard for monitoring E2E/API test runs.</li>
-            </ul>
-            More features and projects will be added in the future.
-        </StyledP>
-        <StyledP>
-            Check out my personal website at <a href="https://cagaragrzegorz.github.io/" target="_blank" rel="noopener noreferrer">https://cagaragrzegorz.github.io/</a>
+            Check out my personal website at <a href="https://cagaragrzegorz.github.io/" target="_blank"
+                                                rel="noopener noreferrer">https://cagaragrzegorz.github.io/</a>
         </StyledP>
     </Container>
 );

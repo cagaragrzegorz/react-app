@@ -1,11 +1,11 @@
 import "./styles/App.css";
 import React, {FC} from "react";
 import {MainContainer} from "./components/MainContainer";
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Router, Routes} from "react-router-dom";
 import {menuData} from "./components/menu/NavMenu.data";
 
 export const App: FC = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={'/react-app'}>
         <Routes>
             <Route path="/" element={<MainContainer/>}>
                 <Route index element={<Navigate to="/home"/>}/>
