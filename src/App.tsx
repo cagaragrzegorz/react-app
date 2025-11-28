@@ -8,11 +8,11 @@ export const App: FC = () => (
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<MainContainer/>}>
-                <Route index element={<Navigate to="react-app/home"/>}/>
-                <Route path="*" element={<p>There's nothing here: 404!</p>}/>
+                <Route index element={<Navigate to="/home"/>}/>
                 {menuData.map((item, i) => (
                     <Route path={item.link} element={item.element} key={i}/>
                 ))}
+                <Route path="*" element={<p>There's nothing here: 404!</p>}/>
             </Route>
         </Routes>
     </BrowserRouter>

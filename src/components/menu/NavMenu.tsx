@@ -13,7 +13,7 @@ export const NavMenu: React.FC = () => {
     const toggleMenu = () => { setIsMenuOpen(!isMenuOpen); };
 
     const isActiveLink = (link: string): boolean => {
-        return link === `react-app/${location.pathname.split('/').slice(-1)[0]}`
+        return link === `/${location.pathname.split('/').slice(-1)[0]}`
     }
 
     return (
