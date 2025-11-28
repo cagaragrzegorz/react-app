@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  buildAndDeploy:
+    name: Build prod distribution and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 20.8.1
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.8.1
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Build App
+      run: yarn run build
+
+    - name: Configure Git user
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+    - name: Deploy App
+      run: yarn run deploy
