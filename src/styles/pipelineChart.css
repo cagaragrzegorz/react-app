@@ -1,0 +1,124 @@
+.project-container {
+    outline: solid 1px rgba(0, 0, 0, .08);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .132);
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    /*justify-content: space-evenly;*/
+    border-radius: 5px;
+}
+
+.project-container-title {
+    width: 100%;
+    text-align: left;
+    margin: 0px 10px 10px 10px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.chart-container {
+    width: 330px;
+    height: 160px;
+    outline: solid 1px rgba(0, 0, 0, .08);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .132);
+    margin: 10px;
+    padding: 0 12px;
+    border-radius: 4px;
+}
+
+.title-container {
+    font-size: 1rem;
+    text-align: left;
+    padding-top: 5px;
+    font-weight: 500;
+    width: 320px;
+}
+
+.bar-container {
+    border-bottom: solid 2px #858585;
+    height: 102px;
+    display: flex;
+}
+
+.footer-container {
+    text-align: left;
+}
+
+.status-icon {
+    margin-right: 6px;
+    position: relative;
+    top: 2px;
+}
+
+.footer-status-text {
+    margin-right: 6px;
+    position: relative;
+    top: 4px;
+}
+
+.chart-status {
+    fill: currentColor;
+}
+
+.chart-status.failed {
+    color: rgba(205, 74, 69, 1);
+}
+
+.chart-status.success {
+    color: rgba(85, 163, 98, 1);
+}
+
+.chart-bar {
+    display: block;
+    width: 13px;
+    height: 70px;
+    border-radius: 2px;
+    margin-right: 2px;
+    margin-top: 30px;
+}
+
+.success-bar {
+    background-color: rgba(85, 163, 98, .2);
+    border: 1px solid #55a362;
+}
+
+.failure-bar {
+    background-color: rgba(239, 187, 185, 1);
+    border: 1px solid rgba(205, 74, 69, 1);
+}
+
+.empty-bar {
+    background-color: #b5b1b1;
+    border: 1px solid #737373;
+    height: 10px;
+    margin-top: 90px;
+}
+
+.bar-back-bar:hover{
+    display: block;
+    width: 13px;
+    height: 100px;
+    background-color: #efefef;
+    margin-right: 2px;
+}
+
+.bar-back-bar:hover > .empty-bar{
+    background-color: #737373;
+}
+.bar-back-bar:hover > .success-bar{
+    background-color: #55a362;
+}
+.bar-back-bar:hover > .failure-bar{
+    background-color: rgba(205, 74, 69, 1);
+}
+
+.tooltip > div.tooltip-inner {
+    background-color: #464646 !important;
+    max-width: fit-content !important;
+    text-align: justify !important;
+}
+
+.tooltip > div.tooltip-arrow:before {
+    border-top-color: #464646 !important;
+}
