@@ -6,6 +6,7 @@ export const TodoContainer = styled.div`
     margin: 20px auto auto;
     box-shadow: 5px 7px 16px 0 #8b8b8b;
     border-radius: 8px;
+    background-color: #fff;
     @media (max-width: 768px) {
         width: 80%;
     }

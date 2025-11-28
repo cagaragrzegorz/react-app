@@ -10,12 +10,15 @@ import {
 } from "./Todo.styled";
 import {Plus, X} from "lucide-react";
 import './Todo.css'
+import {PageTitle, PageTitleDescription} from "../../components/common/Common.styled";
+import {Container} from "react-bootstrap";
 
 interface Todo {
     id: number;
     text: string;
     completed: boolean;
 }
+
 export const Todo: React.FC = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
     const [todosToDisplay, setTodosToDisplay] = useState<Todo[]>([]);
@@ -29,6 +32,19 @@ export const Todo: React.FC = () => {
         setActiveFilter('all')
     }, [todos]);
 
+    useEffect(() => {
+        const todos = localStorage.getItem('todos');
+        if (todos) {
+            const todosArray: Todo[] = JSON.parse(todos);
+            setTodos(todosArray)
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+
+
     const addTodo = () => {
         if (inputValue.trim()) {
             const newTodo: Todo = {
@@ -36,7 +52,9 @@ export const Todo: React.FC = () => {
                 text: inputValue,
                 completed: false,
             };
-            setTodos((prevTodos) => {return [...prevTodos, newTodo]});
+            setTodos((prevTodos) => {
+                return [...prevTodos, newTodo]
+            });
             setInputValue('');
         }
     };
@@ -48,7 +66,7 @@ export const Todo: React.FC = () => {
     };
     const toggleTodo = (id: number) => {
         setTodos(todos.map(todo =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            todo.id === id ? {...todo, completed: !todo.completed} : todo
         ));
     };
 
@@ -56,26 +74,30 @@ export const Todo: React.FC = () => {
         setTodos(todos.filter(todo => todo.id !== id));
     };
 
-    const deleteCompletedTodos = () =>{
+    const deleteCompletedTodos = () => {
         setTodos(todos.filter(todo => !todo.completed));
     }
 
-    const filterTasks = (filter: 'all'|'active'|'completed') => {
+    const filterTasks = (filter: 'all' | 'active' | 'completed') => {
         switch (filter) {
-            case "all": setTodosToDisplay(todos)
+            case "all":
+                setTodosToDisplay(todos)
                 break;
-            case "active": setTodosToDisplay(todos.filter(todo => !todo.completed))
+            case "active":
+                setTodosToDisplay(todos.filter(todo => !todo.completed))
                 break;
-            case "completed": setTodosToDisplay(todos.filter(todo => todo.completed))
+            case "completed":
+                setTodosToDisplay(todos.filter(todo => todo.completed))
                 break;
         }
         setActiveFilter(filter)
     };
 
     return (
-        <div>
-            <h1>Todo App</h1>
-            <p>This is TODO app for testing purposes. I created e2e tests using different Frameworks utilizing this app.</p>
+        <Container fluid>
+            <PageTitle>Todo App</PageTitle>
+            <PageTitleDescription>This is TODO app for testing purposes. I created e2e tests using different Frameworks
+                utilizing this app.</PageTitleDescription>
             <TodoContainer data-testid="todo-container">
                 <TaskInputContainer data-testid="task-input-container">
                     <TaskInput
@@ -117,6 +139,6 @@ export const Todo: React.FC = () => {
                     </TodoFooter>
                 </TaskListContainer>
             </TodoContainer>
-        </div>
+        </Container>
     );
 };
